@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h2>{{ title }}</h2>
+    <p>
+        Congratulations!  Your code is <strong>{{ score }}</strong>.
+    </p>
+    <form action="/savescore" method="post">
+        <table>
+            <tr>
+                <td>
+                    Tell us your name:
+                </td>
+                <td>
+                    <input type="text" name="player" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <input type="submit" value="Record Score">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h2>{{ title }}</h2>
+
+    <p>
+        Congratulations, {{ name }}, your score of {{ score }} has been saved.
+    </p>
+
+    <p>
+        You placed {{ position }} out of {{ length }} players.
+    </p>
+
+    <p>
+        Here are the top ten scores:
+        <table>
+            {% for row in topten %}
+                <tr>
+                    <td>
+                        {{ row }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </p>
+
+{% endblock %}

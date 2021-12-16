@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+
+<h2>{{ title }}</h2>
+<p>
+game
+</p>
+
+<p>
+    {{ guessWord }}
+</p>
+    <table>
+       
+        <tr>
+            <td>
+                <input type="text" name="words" required>
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <form action="/checkResults" method="get">
+                <input type="submit" value="Check">
+                </form>
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+
+{% endblock %}
