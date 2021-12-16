@@ -9,19 +9,20 @@ game
 </p>
 
 <p>
-    {{ guessWord }}
+    {{ source_word }}
 </p>
     <table>
        
         <tr>
             <td>
-                <input type="text" name="words" required>
+               
             </td>
             <td>
                 &nbsp;
             </td>
             <td>
                 <form action="/checkResults" method="get">
+                <input type="text" name="guessedWords" required="" id="guessedWords">
                 <input type="submit" value="Check">
                 </form>
             </td>
