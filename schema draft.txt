@@ -1,0 +1,168 @@
+Enter password: ********
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 10.6.5-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases
+    -> quit
+    ->
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'quit
+
+show databases' at line 2
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.018 sec)
+
+MariaDB [(none)]> create database wordgameDB
+    -> create database wordgameDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'create database wordgameDB' at line 2
+MariaDB [(none)]> create database wordgameDB;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> show databases
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show databases' at line 2
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| wordgamedb         |
++--------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [(none)]> grant all on wordgamedb.* to "wordgameuser"
+    -> grant all on wordgamedb.* to "wordgameuser";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'grant all on wordgamedb.* to "wordgameuser"' at line 2
+MariaDB [(none)]> grant all on wordgamedb.* to "wordgameuser";
+ERROR 1133 (28000): Can't find any matching row in the user table
+MariaDB [(none)]> grant all on wordgameDB.* to 'wordgameuser' identified by 'wordgamepasswd';
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [(none)]> mysql -u wordgameuser -p wordgameDB
+    ->
+    -> mysql -u wordgameuser -p wordgameDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'mysql -u wordgameuser -p wordgameDB
+
+mysql -u wordgameuser -p wordgameDB' at line 1
+MariaDB [(none)]> grant all on wordgameDB.* to 'wordgameuser' identified by 'wordgamepasswd';
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> mysql -u wordgameuser -p wordgameDB;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'mysql -u wordgameuser -p wordgameDB' at line 1
+MariaDB [(none)]> quit
+Bye
+
+C:\Program Files\MariaDB 10.6\bin>mysql -u wordgameuser -p wordgameDB
+Enter password: **************
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 6
+Server version: 10.6.5-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [wordgameDB]> show tables
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show tables' at line 2
+MariaDB [wordgameDB]> show tables;
+Empty set (0.001 sec)
+
+MariaDB [wordgameDB]> create table wordgametable (
+    -> name varchar(64) not null,
+    -> time_taken timestamp default current_timestamp,
+    -> big_word varchar(64) not null,
+    -> small_words varchar(64) not null );
+Query OK, 0 rows affected (0.025 sec)
+
+MariaDB [wordgameDB]> show tables
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show tables' at line 2
+MariaDB [wordgameDB]> show tables;
++----------------------+
+| Tables_in_wordgamedb |
++----------------------+
+| wordgametable        |
++----------------------+
+1 row in set (0.001 sec)
+
+MariaDB [wordgameDB]> describe wordgametable;
++-------------+-------------+------+-----+---------------------+-------+
+| Field       | Type        | Null | Key | Default             | Extra |
++-------------+-------------+------+-----+---------------------+-------+
+| name        | varchar(64) | NO   |     | NULL                |       |
+| time_taken  | timestamp   | NO   |     | current_timestamp() |       |
+| big_word    | varchar(64) | NO   |     | NULL                |       |
+| small_words | varchar(64) | NO   |     | NULL                |       |
++-------------+-------------+------+-----+---------------------+-------+
+4 rows in set (0.034 sec)
+
+MariaDB [wordgameDB]> drop wordgametable;
+ERROR 2006 (HY000): Server has gone away
+No connection. Trying to reconnect...
+Connection id:    9
+Current database: wordgameDB
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'wordgametable' at line 1
+MariaDB [wordgameDB]> show tables
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'show tables' at line 2
+MariaDB [wordgameDB]> show tables;
++----------------------+
+| Tables_in_wordgamedb |
++----------------------+
+| wordgametable        |
++----------------------+
+1 row in set (0.028 sec)
+
+MariaDB [wordgameDB]> drop wordgametable;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'wordgametable' at line 1
+MariaDB [wordgameDB]> drop table wordgametable;
+Query OK, 0 rows affected (0.127 sec)
+
+MariaDB [wordgameDB]> show tables;
+Empty set (0.001 sec)
+
+MariaDB [wordgameDB]> create table wordgametable (
+    -> name varchar(64) not null,
+    -> time_taken timestamp default current_timestamp,
+    -> big_word varchar(64) not null,
+    -> small_words varchar(64) not null );
+Query OK, 0 rows affected (0.035 sec)
+
+MariaDB [wordgameDB]> show tables;
++----------------------+
+| Tables_in_wordgamedb |
++----------------------+
+| wordgametable        |
++----------------------+
+1 row in set (0.001 sec)
+
+MariaDB [wordgameDB]> describe wordgametable;
++-------------+-------------+------+-----+---------------------+-------+
+| Field       | Type        | Null | Key | Default             | Extra |
++-------------+-------------+------+-----+---------------------+-------+
+| name        | varchar(64) | NO   |     | NULL                |       |
+| time_taken  | timestamp   | NO   |     | current_timestamp() |       |
+| big_word    | varchar(64) | NO   |     | NULL                |       |
+| small_words | varchar(64) | NO   |     | NULL                |       |
++-------------+-------------+------+-----+---------------------+-------+
+4 rows in set (0.059 sec)
+
+MariaDB [wordgameDB]>
