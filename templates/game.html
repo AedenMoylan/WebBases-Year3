@@ -1,33 +1,32 @@
-
 {% extends "base.html" %}
 
 {% block body %}
 
 <h2>{{ title }}</h2>
 <p>
-game
+    game
 </p>
 
 <p>
     {{ source_word }}
 </p>
-    <table>
-       
-        <tr>
-            <td>
-               
-            </td>
-            <td>
-                &nbsp;
-            </td>
-            <td>
-                <form action="/checkResults" method="get">
-                <input type="text" name="guessedWords" required="" id="guessedWords">
+<table>
+
+    <tr>
+        <td>
+
+        </td>
+        <td>
+            &nbsp;
+        </td>
+        <td>
+            <form action="/checkResults" method="route">
+                <input type="text" name="playerinput"> <br></br>
                 <input type="submit" value="Check">
-                </form>
-            </td>
-        </tr>
-    </table>
+            </form>
+        </td>
+    </tr>
+</table>
 
 </form>
 

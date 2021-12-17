@@ -2,33 +2,33 @@
 
 {% block body %}
 
-    <h2>{{ title }}</h2>
-    <p>
-        Congratulations!  Your code is <strong>{{ score }}</strong>.
-    </p>
-    <form action="/savescore" method="post">
-        <table>
-            <tr>
-                <td>
-                    {{didWin}}
-                </td>
-                <td>
-                    <input type="text" name="player" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;
-                </td>
-                <td>
-                    <form>
+<h2>{{ title }}</h2>
+<p>
+    did player win: <strong>{{ didWin }}</strong>.
+</p>
+<form action="/saveScore" method="get">
+    <table>
+        <tr>
+            <td>
+            </td>
+            <td>
+                insert name here:
+                <input type="text" name="playerName">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <form>
                     <input type="submit" value="Record Score">
-                    </form>
-                </td>
-            </tr>
-        </table>
+                </form>
+            </td>
+        </tr>
+    </table>
 
-    </form>
+</form>
 
 
 {% endblock %}

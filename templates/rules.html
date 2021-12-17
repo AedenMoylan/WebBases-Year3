@@ -2,33 +2,33 @@
 
 {% block body %}
 
-    <h2>{{ title }}</h2>
-    <p>
-        7 words only.</br>
-        words are seperated by a space.</br>
-        words must be 4 or more letters long.</br>
-        no duplicates.</br>
-        do not use the baseword in your guesses.</br>
-    </p>
-    
-        <table>
-            <tr>
+<h2>{{ title }}</h2>
+<p>
+    5 words only.</br>
+    words are seperated by a space.</br>
+    words must be 4 or more letters long.</br>
+    no duplicates.</br>
+    do not use the baseword in your guesses.</br>
+</p>
 
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;
-                </td>
-                <td>
-                    <form action="/game" method="get">
-                    <input type="submit" value="Start!">
+<table>
+    <tr>
 
-                    </form>
-                </td>
-            </tr>
-        </table>
+    </tr>
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+        <td>
+            <form action="/game" method="get">
+                <input type="submit" value="Start!">
 
-    </form>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</form>
 
 
 {% endblock %}

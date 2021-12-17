@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+
+<h1> Logs </h1>
+
+
+
+
+<table>
+    <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+    </tr>
+    {% for row in data_base %}
+    <tr>
+        {% for i in row %}
+        <td>{{i}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}
